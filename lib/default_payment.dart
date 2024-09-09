@@ -11,9 +11,9 @@ import 'package:flutter/material.dart';
 class DefaultPayment extends StatelessWidget {
   // You can ask Get to find a Controller that is being used by another page and redirect you to it.
 
-  String webApplicationId = '5b8f6a4d396fa665fdc2b5e7';
-  String androidApplicationId = '5b8f6a4d396fa665fdc2b5e8';
-  String iosApplicationId = '5b8f6a4d396fa665fdc2b5e9';
+  String webApplicationId = '66d9414b4fb27baaf86e4a89';
+  String androidApplicationId = '66d9414b4fb27baaf86e4a89';
+  String iosApplicationId = '66d9414b4fb27baaf86e4a89';
 
 
   @override
