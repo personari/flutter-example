@@ -13,15 +13,17 @@ String webApplicationId = '66d9414b4fb27baaf86e4a8c';
 String androidApplicationId = '66d9414b4fb27baaf86e4a8a';
 String iosApplicationId = '66d9414b4fb27baaf86e4a8b';
 int globalOrderId = 0;
-class TotalPayment extends StatefulWidget {
+class TotalPaymentPriceFail extends StatefulWidget {
   // You can ask Get to find a Controller that is being used by another page and redirect you to it.
 
   @override
-  State<StatefulWidget> createState() =>  _TotalPaymentState();
+  State<StatefulWidget> createState() =>  _TotalPaymentPriceFailState();
 
 }
 
-class _TotalPaymentState extends State<TotalPayment>{
+class _TotalPaymentPriceFailState extends State<TotalPaymentPriceFail>{
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -34,9 +36,9 @@ class _TotalPaymentState extends State<TotalPayment>{
                     },
                     child: const Text('통합결제 테스트', style: TextStyle(fontSize: 16.0))
                 )
-            )
         )
-    );
+    )
+  );
 
 
   }
@@ -99,7 +101,7 @@ class _TotalPaymentState extends State<TotalPayment>{
     item1.name = "껌"; // 주문정보에 담길 상품명
     item1.qty = 2; // 해당 상품의 주문 수량
     item1.id = "6"; // 해당 상품의 고유 키
-    item1.price = 500; // 상품의 가격
+    item1.price = 450; // 상품의 가격
 
     Item item2 = Item();
     item2.name = "사탕"; // 주문정보에 담길 상품명
@@ -117,7 +119,7 @@ class _TotalPaymentState extends State<TotalPayment>{
     // payload.method = '카드';
     // payload.methods = ['card', 'phone', 'vbank', 'bank', 'kakao'];
     payload.orderName = "테스트 상품"; //결제할 상품명
-    payload.price = 1300.0; //정기결제시 0 혹은 주석
+    payload.price = 1200.0; //정기결제시 0 혹은 주석
 
 
     payload.orderId = globalOrderId.toString();
@@ -178,22 +180,23 @@ class _TotalPaymentState extends State<TotalPayment>{
       'Accept': 'application/json',
     };
 
-    Map<String, Object> order = {
-      "itemOrderList" : [
-        {
-          "itemId" : 6,
-          "quantity" : 2
-        },
-        {
-          "itemId" : 7,
-          "quantity" : 1
-        }
-      ],
-      "projectId" : 1,
-      "memberId" : 1,
-      "ordererName" : "홍길동",
-      "ordererPhoneNumber" : "010-3363-0371"
-    };
+  Map<String, Object> order = {
+    "itemOrderList" : [
+      {
+        "itemId" : 6,
+        "quantity" : 2
+      },
+      {
+        "itemId" : 7,
+        "quantity" : 1
+      }
+    ],
+    "totalPrice" : 1300,
+    "projectId" : 1,
+    "memberId" : 1,
+    "ordererName" : "홍길동",
+    "ordererPhoneNumber" : "010-3363-0371"
+  };
 
     var result = await http.post(url, headers : headers, body: jsonEncode(order));
 

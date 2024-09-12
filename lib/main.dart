@@ -5,12 +5,15 @@ import 'package:pg_test_flutter/password_payment.dart';
 import 'package:pg_test_flutter/password_web_payment.dart';
 import 'package:pg_test_flutter/subscription_payment.dart';
 import 'package:pg_test_flutter/total_payment.dart';
+import 'package:pg_test_flutter/total_payment_price_fail.dart';
+import 'package:pg_test_flutter/total_payment_stock_fail.dart';
 import 'package:pg_test_flutter/webapp_payment.dart';
 
 import 'bio_payment.dart';
 import 'default_payment.dart';
 import 'subscription_bootpay_payment.dart';
 
+String receiptId = "";
 void main() {
   runApp(const MyApp());
 }
@@ -61,6 +64,14 @@ class _MyHomePageState extends State<MyHomePage> {
               TextButton(
                   onPressed: () => Get.to(TotalPayment()),
                   child: const Text('2. 통합결제 테스트', style: TextStyle(fontSize: 16.0))
+              ),
+              TextButton(
+                  onPressed: () => Get.to(TotalPaymentPriceFail()),
+                  child: const Text('2. 통합결제 테스트 실패 - 가격', style: TextStyle(fontSize: 16.0))
+              ),
+              TextButton(
+                  onPressed: () => Get.to(TotalPaymentStockFail()),
+                  child: const Text('2. 통합결제 테스트 실패 - 수량', style: TextStyle(fontSize: 16.0))
               ),
               TextButton(
                   onPressed: () => Get.to(SubscriptionPayment()),
